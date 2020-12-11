@@ -1,0 +1,1067 @@
+input, textarea {
+  box-sizing: border-box;
+}
+$fontColor: #333;
+@mixin tb {
+  @media (max-width: 1125px) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+@mixin menuBar {
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  transition: transform .3s;
+}
+@mixin btn {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: "Montserrat Medium";
+  text-decoration: none;
+  padding: 10px 44px;
+  display: inline-block;
+}
+@mixin title {
+  color: $fontColor;
+  font-size: 32px;
+  font-family: "Montserrat ExtraBold";
+  @include sp {
+    font-size: 28px;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+
+
+// header -----------------------------------------------------------
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 10;
+  &__logo {
+    margin-top: 30px;
+    margin-left: 58px;
+    position: absolute;
+    z-index: 10;
+    @include tb {
+      margin-top: 34px;
+      margin-left: 30px;
+      width: 190px;
+      height: 20px;
+    }
+    @include sp {
+      margin-top: 20px;
+      margin-left: 15px;
+    }
+  }
+}
+
+  // ハンバーガーメニュー
+.index , .about , .contact {
+  &__menu {
+    background-color: #222222F2;
+    height: 100vh;
+    width: 36.1vw;
+    transform: translateX(100%);
+    transition: transform .3s;
+    position: absolute;
+    right: 0;
+    z-index: 9;
+  }
+  &__list {
+    padding-top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__icon {
+    margin-bottom: 40px;
+  }
+  &__item {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Montserrat Extra";
+    margin-bottom: 30px;
+  }
+}
+
+
+.menu,
+.about-menu,
+.contact-menu {
+  position: absolute;
+  top: 5vh;
+  right: 4vw;
+  display: flex;
+  z-index: 9;
+  color: #ffffff;
+  cursor: pointer;
+  @include tb {
+    top: 4vh;
+    margin-right: 30px;
+  }
+  @include sp {
+    margin-right: 15px;
+  }
+  &__btn {
+    &--top, &--bottom {
+      @include menuBar;
+    }
+    &--center {
+      @include menuBar;
+      margin: 5px 0;
+    }
+  }
+  &__text {
+    font-size: 10px;
+    margin-left: 7px;
+    line-height: 20px;
+  }
+  &__musk , &__musk--about , &__musk--contact {
+    position: absolute;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: #22222299;
+    z-index: 7;
+  }
+}
+
+
+.cross.bar , .cross.bar-about , .cross.bar-contact{
+  &.menu__btn--top {
+    transform: translateY(7px)rotate(31deg);
+    transition: transform .3s;
+  }
+  &.menu__btn--center {
+    opacity: 0;
+  }
+  &.menu__btn--bottom {
+    transform: translateY(-7px)rotate(-31deg);
+    transition: transform .3s;
+  }
+
+  &.about-menu__btn--top {
+    transform: translateY(7px)rotate(31deg);
+    transition: transform .3s;
+  }
+  &.about-menu__btn--center {
+    opacity: 0;
+  }
+  &.about-menu__btn--bottom {
+    transform: translateY(-7px)rotate(-31deg);
+    transition: transform .3s;
+  }
+
+  &.contact-menu__btn--top {
+    transform: translateY(7px)rotate(31deg);
+    transition: transform .3s;
+  }
+  &.contact-menu__btn--center {
+    opacity: 0;
+  }
+  &.contact-menu__btn--bottom {
+    transform: translateY(-7px)rotate(-31deg);
+    transition: transform .3s;
+  }
+}
+
+.black {
+  &.bar{
+    background-color: $fontColor;
+  }
+  &.text{
+    color: $fontColor;
+  }
+  &.bar-about {
+    background-color: $fontColor;
+  }
+  &.text-about {
+    color: $fontColor;
+  }
+  &.bar-contact {
+    background-color: $fontColor;
+  }
+  &.text-contact {
+    color: $fontColor;
+  }
+}
+
+.site-logo.black path {
+  fill: #333;
+}
+.site-logo-about.black path {
+  fill: #333;
+}
+.site-logo-contact.black path {
+  fill: $fontColor;
+}
+.stop {
+  overflow: hidden;
+}
+.index__menu.slide , .about__menu.slide , .contact__menu.slide {
+  transform: translateX(0);
+  transition: transform .3s;
+}
+
+// main --------------------------------------------------------------
+.main-index {
+  height: 100vh;
+  &__bg {
+    display: block;
+    background-color: #222222;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    @include tb {
+      width: 76.8%;
+    }
+  }
+  &__box {
+    background-image: url(../img/kv-img.jpg);
+    background-size: cover;
+    background-position: center 0;
+    width: 76.4%;
+    height: 86.5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    @include tb {
+      
+    }
+  }
+  &__text {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: #ffffff;
+    transform: translate(50%, -50%);
+    z-index: 3;
+    @include tb {
+      transform: translate(35%, -50%);
+    }
+    &--1st, &--2nd{
+      font-size: 20px;
+      line-height: 27px;
+      font-family: "Montserrat Medium";
+      @include tb {
+        font-size: 16px;
+      }
+    }
+    &--3rd {
+      font-size: 72px;
+      font-weight: bolder;
+      font-family: "Montserrat ExtraBold";
+      margin-top: 10px;
+      @include tb {
+        font-size: 56px;
+      }
+    }
+  }
+}
+
+// about ------------------------------------------------------------
+.about {
+  margin-top: 120px;
+  position: relative;
+  z-index: 2;
+  &__img {
+    background-image: url(../img/about-img.jpg);
+    background-size: cover;
+    width: 1100px;
+    height: 607px;
+    margin: 0 auto;
+    @include tb {
+      width: 100%;
+      height: 62.3vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @include sp {
+      background-position: center;
+      height: 144vw;
+    }
+  }
+  &__inner {
+    padding-top: 110px;
+    padding-left: 50px;
+    @include tb {
+      padding: 0;
+    }
+    @include sp {
+      width: 100%;
+      height: 100%;
+      
+    }
+  }
+  &__itemn {
+    width: 590px;
+    height: 387px;
+    background-color: #FFFFFFF2;
+    @include tb {
+      margin: auto;
+    }
+    @include sp {
+      width: auto;
+      height: auto;
+      margin: 50px 15px;
+    }
+  }
+  &__title {
+    @include title;
+    padding-top: 50px;
+    margin-left: 30px;
+  }
+  &__text {
+    font-size: 16px;
+    font-family: "Noto Sans JP";
+    color: $fontColor;
+    margin-left: 30px;
+    line-height: 32px;
+    margin: 30px;
+    @include sp {
+      font-size: 14px;
+      font-family: "Yu Gothic";
+      margin: 22px;
+    }
+  }
+  &__btn {
+    @include btn;
+    margin-left: 30px;
+    margin-bottom: 50px;
+  }
+}
+
+// desc -------------------------------------------------------------
+.desc {
+  background-color: #F0F0F0;
+  position: relative;
+  top: -100px;
+  z-index: 1;
+  @include tb {
+    top: 0;
+  }
+  &__container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 180px;
+    padding-bottom: 80px;
+    @include tb {
+      flex-direction: column;
+      padding:0;
+    }
+    @include sp {
+      padding-top: 0;
+      padding-bottom: 40px;
+    }
+  }
+  &__item {
+    max-width: 100%;
+    margin: 0 30px;
+    @include tb {
+      margin: 40px 30px;
+    }
+    @include sp {
+      margin: 40px 15px 0 15px;
+    }
+  }
+  &__title {
+    @include title;
+    max-width: 100%;
+  }
+  &__img {
+    margin: 30px 0;
+    @include sp {
+      width: 100%;
+      height: 61.8vw;
+    }
+  }
+  &__text {
+    max-width: 100%;
+    font-size: 16px;
+    color: $fontColor;
+    font-family: "YuGothic";
+    margin-bottom: 28px;
+  }
+  &__btn {
+    @include btn;
+  }
+}
+
+// info -------------------------------------------------------------
+.info {
+  &__container {
+  max-width: 1100px;
+  position: relative;
+  top: -40px;
+  margin: 0 auto 60px auto;
+  @include tb {
+    top: 0;
+    margin: 40px 30px 70px 30px;
+    }
+  }
+  &__title {
+    @include title;
+    @include tb {
+      margin-bottom: 30px;
+    }
+  }
+  &__box {
+    display: flex;
+    flex-direction: row-reverse;
+    @include tb {
+      flex-direction: row;
+    }
+  }
+  &__item {
+    width: 700px;
+    @include tb {
+      width: 100%;
+    }
+    & li {
+      list-style: none;
+    }
+  }
+  &__date {
+    color: #CECECE;
+    font-size: 10px;
+    font-family: "Montserrat Medium";
+    font-weight: lighter;
+    margin-bottom: 9px;
+  }
+  &__text {
+    color: $fontColor;
+    font-size: 14px;
+    font-family: "YuGothic";
+    font-weight: bolder;
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    @include sp {
+      font-size: 12px;
+    }
+  }
+  &__btn {
+    @include btn;
+    float: right;
+    @include tb {
+      float: left;
+    }
+  }
+}
+
+// contact ----------------------------------------------------------
+.contact {
+  background-color: #F0F0F0;
+  &__container {
+    padding-top: 60px;
+    padding-bottom: 120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    @include tb {
+      flex-direction: column-reverse;
+      margin: 0 30px;
+      padding-bottom: 80px;
+    }
+    @include sp {
+      margin: 0 15px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+  &__box {
+    max-width: 440px;
+    margin-right: 80px;
+    padding: 70px 0;
+    @include tb {
+      padding: 30px 0 0 0;
+      margin: 0;
+      max-width: auto;
+    }
+
+  }
+  &__title {
+    @include title;
+  }
+  &__text {
+    font-size: 16px;
+    font-family: "YuGothic";
+    color: $fontColor;
+    line-height: 32px;
+    margin: 30px 0;
+  }
+  &__btn {
+    @include btn;
+  }
+  & img {
+    width: 520px;
+    height: 350px;
+    @include sp {
+      width: 100%;
+      height: 61.8vw;
+    }
+  }
+}
+
+// footer -----------------------------------------------------------
+.footer {
+  background-color: #525252;
+  height: 50px;
+  &__copy {
+    font-size: 10px;
+    font-family: "Montserrat Medium";
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 50px;
+  }
+}
+
+
+// about.html -------------------------------------------------------
+//-------------------------------------------------------------------
+.main-about {
+  height: 51.5vh;
+  @include tb {
+    height: 60.0vh;
+  }
+  &__bg {
+    content: "";
+    display: block;
+    background-color: #222222;
+    width: 54.1%;
+    height: 51.5%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    @include tb {
+      width: 52.8%;
+      height: 60.0%;
+    }
+  }
+  &__box {
+    background-image: url(../img/heading-img.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 76.3%;
+    height: 86.5%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    @include tb {
+      height: 51.6vh;
+    }
+  }
+  &__text {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: #ffffff;
+    transform: translate(40%, -50%);
+    z-index: 3;
+    @include tb {
+      transform: translate(27%, -50%);
+    }
+    &--1st {
+      width: 290px;
+      font-size: 72px;
+      font-weight: bolder;
+      font-family: "Montserrat ExtraBold";
+      line-height: 88px;
+      @include tb {
+        font-size: 52px;
+      }
+    }
+    &--2nd{
+      font-size: 20px;
+      font-family: "Noto Sans JP Bold";
+      line-height: 27px;
+    }
+  }
+}
+
+// vision -----------------------------------------------------------
+.vision {
+  width: 640px;
+  height: 605px;
+  margin: 120px auto 264px auto;
+  @include tb {
+    width: 468px;
+    margin: 80px auto 211px auto;
+  }
+  @include sp {
+    width: auto;
+    margin: 80px 15px 209px 15px;
+  }
+  &__container {
+    text-align: left;
+    @include sp {
+      max-width: 100%;
+    }
+  }
+  &__title-top {
+    @include title;
+    margin-bottom: 25px;
+    @include sp {
+      margin-bottom: 32px;
+      font-size: 32px;
+    }
+  }
+  &__title-sub {
+    font-size: 24px;
+    font-family: "YuGothic";
+    font-weight: bolder;
+    color: $fontColor;
+    margin-bottom: 27px;
+  }
+  &__text {
+    font-family: "Noto Sans JP Bold";
+    color: $fontColor;
+    @include tb {
+      font-size: 14px;
+    }
+  }
+  &__box {
+    height: 482px;
+    line-height: 32px;;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+// message ----------------------------------------------------------
+.message {
+  width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  @include tb {
+    width: auto;
+    margin: 0 30px 0 244px;
+    justify-content: center;
+  }
+  @include sp {
+    margin: 0 15px;
+  }
+  &__container {
+    width: 770px;
+    background-color: #F0F0F0;
+    padding: 120px 0 90px 0;
+    position: relative;
+    text-align: center;
+    display: block;
+    @include tb {
+      width: 494px;
+    }
+    @include sp {
+      width: 100%;
+    }
+  }
+  &__img {
+    position: absolute;
+    top: -144px;
+    left: -330px;
+    @include tb {
+      width: 320px;
+      height: 216px;
+      top: -131px;
+      left: -214px;
+    }
+    @include sp {
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+      margin-right: 30px;
+      top: -129px;
+      left: -15px;
+    }
+  }
+  &__box {
+    max-width: 400px;
+    text-align: left;
+    margin: 0 auto;
+    @include tb {
+      max-width: 415px;
+      margin: 0 39px;
+    }
+    @include sp {
+      max-width: 288px;
+    }
+  }
+  &__title {
+    @include title;
+    margin-bottom: 30px;
+    text-align: left;
+    @include sp {
+      font-size: 32px;
+    }
+  }
+  &__item {
+    height: 477px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include sp {
+      height: 525px;
+    }
+  }
+  &__text {
+    color: $fontColor;
+    line-height: 32px;
+    @include tb {
+      line-height: 28px;
+    }
+    @include sp {
+      font-size: 14px;
+    }
+  }
+}
+
+// company ----------------------------------------------------------
+.company {
+  &__container {
+    max-width: 1100px;
+    margin: 120px auto;
+    @include tb {
+      margin: 80px 30px; 
+    }
+    @include sp {
+      margin: 80px 15px;
+    }
+  }
+  &__title {
+    @include title;
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 30px;
+    @include sp {
+      font-size: 32px;
+    }
+  }
+  &__table {
+    display: flex;
+    justify-content: flex-end;
+    text-align: left;
+    margin-bottom: 40px;
+    @include tb {
+      margin-left: 30px; 
+    }
+    @include sp {
+      margin-left: 0;
+    }
+  }
+  &__body {
+    width: 800px;
+  }
+  &__list {
+    border-bottom: 1px solid #DDDDDD;
+    line-height: 56px;
+    display: block;
+  }
+  &__name {
+    font-family: "YuGothic";
+    color: $fontColor;
+    width: 82px;
+    padding-right: 62px;
+    @include sp {
+      font-size: 14px;
+    }
+  }
+  &__text {
+    font-family: "YuGothic";
+    color: $fontColor;
+    font-weight: lighter;
+    @include sp {
+      font-size: 14px;
+    }
+  }
+  &__map {
+    max-width: 1100px;
+    height: 360px;
+    margin: 0 auto;
+    @include tb {
+      height: 230px;
+    }
+    @include sp {
+      height: 470px;
+    }
+    &--inner {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+// contact.html -----------------------------------------------------
+//-------------------------------------------------------------------
+.main-contact {
+  height: 51.5vh;
+  @include tb {
+    height: 60.0vh;
+  }
+  @include sp {
+    height: 54.7vh
+  }
+  &__bg {
+    display: block;
+    background-color: #222222;
+    width: 54.1%;
+    height: 51.5%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    @include tb {
+      width: 52.8%;
+      height: 60.0%;
+    }
+    @include sp {
+      height: 54.7vh
+    }
+  }
+  &__box {
+    background-image: url(../img/heading-img_contact.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 76.3%;
+    height: 86.5%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    @include tb {
+      width: 75.2%;
+      height: 51.6vh;
+    }
+    @include sp {
+      height: 40.4vh;
+    }
+  }
+  &__text {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: #ffffff;
+    transform: translate(35%, -50%);
+    z-index: 3;
+    @include tb {
+      transform: translate(53%, -50%);
+    }
+    @include sp {
+      transform: translate(30%, -50%);
+    }
+    &--1st {
+      width: 290px;
+      font-size: 72px;
+      font-weight: bolder;
+      font-family: "Montserrat ExtraBold";
+      line-height: 88px;
+      @include tb {
+        font-size: 52px;
+      }
+    }
+    &--2nd{
+      font-size: 20px;
+      font-family: "Noto Sans JP Bold";
+      line-height: 27px;
+    }
+  }
+}
+
+// content ----------------------------------------------------------
+input {
+  width: 100%;
+  outline: none;
+  border: none;
+  resize: none;
+  appearance: none;
+}
+.content {
+  width: 700px;
+  margin: 120px auto;
+  font-family: "Noto Sans JP";
+  @include tb {
+    width: auto;
+    max-width: 100%;
+    margin: 135px 30px 197px 30px;
+  }
+  @include sp {
+    margin: 80px 15px;
+  }
+  &__container {
+    color: $fontColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__text {
+    line-height: 24px;
+    margin-bottom: 52px;
+    @include sp {
+      font-size: 14px;
+      margin-bottom: 48px;
+    }
+  }
+  &__item {
+    width: 700px;
+    margin-bottom: 42px;
+    @include tb {
+      width: 100%;
+    }
+    @include sp {
+      margin-bottom: 37px;
+    }
+    & p {
+      line-height: 21px;
+    }
+    & span {
+      width: 34px;
+      height: 18px;
+      margin-top: 2px;
+      margin-left: 20px;
+      background-color: #222222;
+      font-size: 12px;
+      color: #FFFFFF;
+      display: inline-block;
+      text-align: center;
+      line-height: 17px;
+    }
+  }
+  &__name {
+    display: flex;
+    margin-bottom: 16px;
+    @include sp {
+      font-weight: bolder;
+    }
+    &--bold {
+      font-family: "Montserrat ExtraBold";
+      font-weight: bolder;
+      margin-bottom: 8px;
+    }
+  }
+  &__radio {
+    display: flex;
+    @include sp {
+      margin-top: 17px;
+      flex-direction: column;
+    }
+    &--btn {
+      margin-right: 50px;
+      display: flex;
+      line-height: 22px;
+      @include sp {
+        margin-bottom: 14px;
+      }
+      & input {
+
+        margin-right: 10px;
+      }
+    }
+    &--btnLast {
+      margin-right: 50px;
+      display: flex;
+      line-height: 22px;
+      & input {
+        
+        margin-right: 10px;
+      }
+    }
+    label {
+      cursor: pointer;
+    }
+    input {
+      margin: 0 10px;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #333;
+      border-radius: 50%;
+      cursor: pointer;
+      &:checked {
+        border: 4px solid #fff;
+        background-color :$fontColor;
+        box-shadow: 0 0 0 1px #333;
+      }
+    }
+  }
+  &__area {
+    width: 700px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid #333;
+    @include tb {
+      width: 100%;
+    }
+  }
+  & textarea {
+    resize: none;
+    outline: none;
+    width: 700px;
+    height: 212px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #333;
+    @include tb {
+      width: 100%;
+    } 
+  }
+  &__note {
+    height: 252px;
+    border: 1px solid #000000;
+    padding: 10px;
+    overflow-y: scroll;
+    &::-webkit-scrollBar {
+      display: none;
+    }
+    &--hide {
+      line-height: 24px;
+      margin-bottom: 24px;
+    }
+  }
+  &__chk {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    label {
+      cursor: pointer;
+      line-height: 22px;
+      padding-bottom: 2px;
+    }
+    input {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border: 1px solid #000000;
+      cursor: pointer;
+      &:checked {
+        background-image: url(../img/checkMark.png);
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  &__btn {
+    @include btn;
+    width: 72px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
